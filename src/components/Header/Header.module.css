@@ -1,0 +1,26 @@
+.Header {
+  grid-column: 1/-1;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 16px;
+  align-content: center;
+  padding: 0 32px;
+  background-color: white;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05) !important;
+}
+
+.Header .Search {
+  display: flex;
+  align-items: center;
+}
+
+.Header .Search input[type="text"] {
+  padding: 10px;
+  width: 360px;
+}
+
+.Header .Search i {
+  margin-left: 15px;
+  font-size: 1.3rem;
+}
