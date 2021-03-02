@@ -43,7 +43,6 @@ class Posts extends Component {
 
   render() {
     let posts = this.state.posts;
-    console.log("posts from render: ", posts);
     let renderPost = posts
       ? this.state.posts.map((post, i) =>
           post.data.validatedImgAddress ? (
@@ -51,9 +50,14 @@ class Posts extends Component {
               key={post.data.subreddit_id + i}
               post={post.data}
               pic={post.data.url}
+              api={BASE_API}
             />
           ) : (
-            <Post key={post.data.subreddit_id + i} post={post.data} />
+            <Post
+              key={post.data.subreddit_id + i}
+              post={post.data}
+              api={BASE_API}
+            />
           )
         )
       : null;

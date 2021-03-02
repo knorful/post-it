@@ -1,8 +1,30 @@
+import axios from "axios";
 import React, { Component } from "react";
 
+import Comments from "./Comments/Comments";
 import classes from "./Post.module.css";
 
 class Post extends Component {
+  state = {
+    comments: [],
+  };
+
+  async componentDidMount() {
+    try {
+      let getComments = await axios
+        .get(
+          `${this.props.api}/${this.props.post.subreddit}/comments/${this.props.post.id}.json`
+        )
+        .then((res) => res.data[1].data.children);
+
+      this.setState((st) => ({
+        ...st.comments,
+        comments: getComments,
+      }));
+    } catch (e) {
+      console.log(e);
+    }
+  }
   kFormatter = (num) => {
     return Math.abs(num) > 999
       ? Math.sign(num) * (Math.abs(num) / 1000).toFixed(1) + "k"
@@ -17,7 +39,7 @@ class Post extends Component {
     let hasThumbnail = this.props.post.thumbnail;
 
     let showPosts = this.props.post.selftext ? (
-      <p>{this.props.post.selftext}</p>
+      <p className={classes.SelfText}>{this.props.post.selftext}</p>
     ) : (
       <figure className={classes.mediaContainer}>
         {this.props.pic ? (
@@ -30,6 +52,7 @@ class Post extends Component {
         ) : null}
       </figure>
     );
+
     return (
       <div className={classes.Post}>
         <div className={classes.Votes}>
@@ -53,6 +76,14 @@ class Post extends Component {
             <h3>{this.props.post.title}</h3>
           </a>
           {showPosts}
+          {this.state.comments ? (
+            <div className={classes.Footer}>
+              <Comments
+                numComments={this.kFormatter(this.props.post.num_comments)}
+                comments={this.state.comments}
+              />
+            </div>
+          ) : null}
         </div>
       </div>
     );

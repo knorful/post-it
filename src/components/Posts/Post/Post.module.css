@@ -2,7 +2,7 @@
   display: flex;
   justify-content: center;
   border: 1px solid #0000004b;
-  margin: 40px 0;
+  margin: 40px;
   border-radius: 6px;
   box-shadow: 5px 10px 2px 1px #897777;
 }
@@ -16,12 +16,16 @@
   color: #53413e;
   cursor: pointer;
   font-size: 1.2rem;
-  font-weight: bold;
+  font-weight: 500;
 }
 
-.Post p,
+.Post .Title:hover {
+  color: #b0a7ac;
+  transition: color 0.3s;
+}
+.Post .Content .SelfText,
 .Post .Title h3 {
-  margin: 10px;
+  margin: 10px 0 40px 10px;
 }
 
 .Post .mediaContainer img,
@@ -35,7 +39,7 @@
 .Post .Votes {
   background-color: #b0a7ac;
   border-radius: 5px 0 0 5px;
-  width: 8%;
+  width: 9%;
 }
 
 .Post .VoteDisplay {
@@ -51,7 +55,8 @@
   border-radius: 50%;
 }
 
-.Post button {
+.Post .VoteDisplay .Down,
+.Post .VoteDisplay .Up {
   border: none;
   background-color: #b0a7ac;
 }
@@ -71,11 +76,11 @@
 .Post .VoteCount {
   background-color: white;
   border-radius: 50%;
-  border: 2px solid #897777;
+  border: 5px double #897777;
   margin: 10px 5px;
   padding: 20px 8px;
   min-width: 45px;
   max-width: 45px;
   text-align: center;
-  font-weight: 500;
+  font-weight: bold;
 }

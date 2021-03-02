@@ -8,12 +8,11 @@
   background-color: #4e4544;
 }
 
-.Header .Logo span {
-  font-size: 1.5rem;
+.Header .Logo h1 {
+  font-family: "DotGothic16", sans-serif;
+  letter-spacing: 2px;
   color: white;
-  font-weight: bold;
-  -webkit-text-stroke: 0.5px black;
-  letter-spacing: 0.2rem;
+  margin-right: 5px;
 }
 
 .Header .Search {
