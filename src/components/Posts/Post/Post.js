@@ -43,12 +43,36 @@ class Post extends Component {
     ) : (
       <figure className={classes.mediaContainer}>
         {this.props.pic ? (
-          <img src={this.props.pic} alt="pic" />
+          <img className={classes.mediaImg} src={this.props.pic} alt="pic" />
         ) : hasVideo !== null ? (
-          <video controls>
+          <video className={classes.mediaVideo} controls>
             <source src={hasVideo.reddit_video.fallback_url}></source>
             Your browser does not support the video tag.
           </video>
+        ) : hasThumbnail &&
+          hasThumbnail !== "default" &&
+          hasThumbnail !== "self" ? (
+          <div className={classes.ThumbnailWrapper}>
+            <a
+              href={this.props.post.url}
+              target="_blank"
+              rel="noreferrer"
+              className={classes.ThumbnailLink}
+            >
+              <div className={classes.Thumbnail}>
+                <div className={classes.ThumbnailIcon}>
+                  <i class="fas fa-arrow-circle-right"></i>
+                </div>
+                <img
+                  title="Click image to visit article!"
+                  width={hasThumbnail.thumbnail_width}
+                  height={hasThumbnail.thumbnail_height}
+                  src={hasThumbnail}
+                  alt="pic"
+                />
+              </div>
+            </a>
+          </div>
         ) : null}
       </figure>
     );
@@ -67,15 +91,26 @@ class Post extends Component {
           </div>
         </div>
         <div className={classes.Content}>
-          <a
-            href={this.props.post.url}
-            target="_blank"
-            rel="noreferrer"
-            className={classes.Title}
-          >
-            <h3>{this.props.post.title}</h3>
-          </a>
-          {showPosts}
+          {hasThumbnail &&
+          hasThumbnail !== "default" &&
+          hasThumbnail !== "self" &&
+          !this.props.pic &&
+          !hasVideo ? (
+            <div className={classes.Container}>
+              <div className={classes.Title}>
+                <h3>{this.props.post.title}</h3>
+              </div>
+              {showPosts}
+            </div>
+          ) : (
+            <>
+              <div className={classes.Title}>
+                <h3>{this.props.post.title}</h3>
+              </div>
+              {showPosts}
+            </>
+          )}
+
           {this.state.comments ? (
             <div className={classes.Footer}>
               <Comments
