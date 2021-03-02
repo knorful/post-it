@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 
 import Post from "./Post/Post";
+import classes from "./Posts.module.css";
+
 import axios from "axios";
 
 const BASE_API = "https://www.reddit.com/r";
@@ -41,21 +43,25 @@ class Posts extends Component {
 
   render() {
     let posts = this.state.posts;
+    console.log(posts);
     let renderPost = posts
       ? this.state.posts.map((post, i) =>
           post.data.validatedImgAddress ? (
             <Post
               key={post.data.subreddit_id + i}
-              title={post.data.title}
+              post={post.data}
               pic={post.data.url}
             />
           ) : (
-            <Post key={post.data.subreddit_id + i} title={post.data.title} />
+            <Post key={post.data.subreddit_id + i} post={post.data} />
           )
         )
       : null;
-    console.log("Render Posts: ", renderPost);
-    return <div>{renderPost}</div>;
+    return (
+      <div className={classes.Posts}>
+        <div className={classes.Posts_content}>{renderPost}</div>
+      </div>
+    );
   }
 }
 

@@ -1,0 +1,66 @@
+.Post {
+  display: flex;
+  justify-content: center;
+  border: 1px solid rgba(0, 0, 255, 0.2);
+  margin: 20px 0;
+  border-radius: 6px;
+  box-shadow: 12px 12px 2px 1px #00000034;
+}
+
+.Post .Content {
+  width: 92%;
+}
+.Post .Title {
+  margin: 25px;
+}
+
+.Post .ImgContainer img {
+  max-width: 650px;
+  height: auto;
+}
+
+.Post .Votes {
+  background-color: rgb(239, 239, 239);
+  width: 8%;
+}
+
+.Post .VoteDisplay {
+  display: flex;
+  margin: 10px 0;
+  flex-direction: column;
+  align-items: center;
+}
+
+.Post .VoteDisplay i {
+  font-size: 1.3rem;
+  color: rgba(0, 0, 0, 0.664);
+  border-radius: 50%;
+}
+
+.Post button {
+  border: none;
+}
+
+.Post .VoteDisplay .Down i:hover {
+  color: red;
+  transform: scale(1.1);
+  transition: all 0.5s;
+}
+
+.Post .VoteDisplay .Up i:hover {
+  color: rgb(21, 223, 21);
+  transform: scale(1.1);
+  transition: all 0.2s;
+}
+
+.Post .VoteCount {
+  background-color: white;
+  border-radius: 50%;
+  border: 1px solid rgba(146, 146, 146, 0.678);
+  margin: 10px 5px;
+  padding: 20px 8px;
+  min-width: 45px;
+  max-width: 45px;
+  text-align: center;
+  font-weight: 500;
+}

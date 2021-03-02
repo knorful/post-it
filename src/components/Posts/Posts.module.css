@@ -1,0 +1,10 @@
+.Posts {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.Posts_content {
+  width: 50vw;
+}

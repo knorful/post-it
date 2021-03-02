@@ -1,0 +1,6 @@
+.Main {
+  display: flex;
+  justify-content: space-between;
+  width: 75vw;
+  margin: 0 auto;
+}
