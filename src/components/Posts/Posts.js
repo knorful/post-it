@@ -23,7 +23,7 @@ class Posts extends Component {
       let validatedPosts = getPosts.map((postObj) => {
         return {
           ...postObj,
-          ...(postObj.data["validatedImgAddress"] = this.checkURL(
+          ...(postObj.data["validatedImgAddress"] = this.checkForImgURL(
             postObj.data.url
           )),
         };
@@ -37,13 +37,13 @@ class Posts extends Component {
     }
   }
 
-  checkURL = (url) => {
+  checkForImgURL = (url) => {
     return url.match(/\.(jpeg|jpg|gif|png)$/) != null;
   };
 
   render() {
     let posts = this.state.posts;
-    console.log(posts);
+    console.log("posts from render: ", posts);
     let renderPost = posts
       ? this.state.posts.map((post, i) =>
           post.data.validatedImgAddress ? (

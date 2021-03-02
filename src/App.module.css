@@ -1,3 +1,7 @@
+.App {
+  background-color: #f3ecf1;
+}
+
 .Main {
   display: flex;
   justify-content: space-between;

@@ -7,7 +7,10 @@ class Header extends Component {
       <header>
         <nav className={classes.Header}>
           <div className={classes.Logo}>
-            <h1>Post IT</h1>
+            <h1>
+              <span>Post IT</span>
+              <i class="far fa-clone"></i>
+            </h1>
           </div>
           <div className={classes.Search}>
             <input type="text" placeholder="Search" />
