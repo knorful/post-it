@@ -1,5 +1,6 @@
 .Post {
   display: flex;
+  width: 720px;
   justify-content: center;
   border: 1px solid #0000004b;
   margin: 40px;
@@ -10,6 +11,7 @@
 .Post .Content {
   width: 92%;
   background-color: white;
+  height: auto;
 }
 .Post .Title {
   text-decoration: none;
@@ -25,7 +27,15 @@
 }
 .Post .Content .SelfText,
 .Post .Title h3 {
-  margin: 10px 0 40px 10px;
+  margin: 10px 0 20px 10px;
+}
+
+.Post .Content .SelfText {
+  line-height: 1.5rem;
+  font-size: 1.15rem;
+  width: 90%;
+  margin: 0 auto;
+  text-align: justify;
 }
 
 .Post .mediaContainer .mediaImg,
@@ -38,7 +48,7 @@
 }
 
 .Post .Votes {
-  background-color: #b0a7ac;
+  background-color: #e7e1e5;
   border-radius: 5px 0 0 5px;
   width: 8%;
 }
@@ -51,7 +61,7 @@
 }
 
 .Post .VoteDisplay i {
-  font-size: 1.3rem;
+  font-size: 1.5rem;
   color: #4e4544;
   border-radius: 50%;
 }
@@ -59,10 +69,10 @@
 .Post .VoteDisplay .Down,
 .Post .VoteDisplay .Up {
   border: none;
-  background-color: #b0a7ac;
+  background-color: #e7e1e5;
 }
 
-.Post .VoteDisplay .Down i:hover {
+/* .Post .VoteDisplay .Down i:hover {
   color: red;
   transform: scale(1.1);
   transition: all 0.5s;
@@ -72,14 +82,10 @@
   color: rgb(21, 223, 21);
   transform: scale(1.1);
   transition: all 0.2s;
-}
+} */
 
 .Post .VoteCount {
-  background-color: white;
-  border-radius: 50%;
-  border: 5px double #897777;
   margin: 10px 5px;
-  padding: 20px 8px;
   min-width: 45px;
   max-width: 45px;
   text-align: center;
@@ -96,13 +102,14 @@
   right: 0;
   display: inline-block;
   overflow: hidden;
-  border: 1.5px solid rgb(28, 28, 233);
+  border: 1.5px solid rgb(26, 26, 212);
   border-radius: 4px;
 }
 
 .Post .ThumbnailIcon {
-  color: rgb(28, 28, 233);
+  color: rgb(26, 26, 212);
   background-color: white;
+  padding-left: 5px;
   position: relative;
   z-index: 2;
 }
@@ -120,4 +127,35 @@
 
 .Post .Content .Container {
   display: flex;
+  justify-content: space-between;
+}
+
+.Post .Content .Tagline {
+  font-size: 0.75rem;
+  letter-spacing: 0.5px;
+  margin-top: 5px;
+}
+
+.Post .Content .Tagline a {
+  color: #847c7c;
+  text-decoration: none;
+  margin-right: 10px;
+}
+
+.Post .Content .Tagline a:hover {
+  text-decoration: underline;
+}
+
+.Post .Content .Tagline ul {
+  list-style: none;
+  display: flex;
+  padding-left: 10px;
+}
+
+.Post .FooterContainer {
+  display: flex;
+  border-top: 2px solid #897777;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 20px;
 }

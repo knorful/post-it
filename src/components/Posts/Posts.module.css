@@ -5,6 +5,15 @@
   align-items: center;
 }
 
+.Posts h1 {
+  font-family: "DotGothic16", sans-serif;
+  text-align: center;
+  letter-spacing: 1px;
+}
+
 .Posts_content {
-  width: 60vw;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
 }
