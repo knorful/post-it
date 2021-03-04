@@ -63,7 +63,6 @@ class Posts extends Component {
       : null;
     return (
       <div className={classes.Posts}>
-        <h1>Popular posts</h1>
         <div className={classes.Posts_content}>{renderPost}</div>
       </div>
     );
