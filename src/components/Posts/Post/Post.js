@@ -36,13 +36,12 @@ class Post extends Component {
   };
 
   render() {
-    let hasVideo = this.props.post.media;
+    const epochTimeStamp = format(this.props.post.created_utc * 1000);
+    let hasMediaVideo = this.props.post.media;
     let hasThumbnail = this.props.post.thumbnail;
     let voteCount = this.kFormatter(
       this.props.post.ups - this.props.post.downs
     );
-
-    const epochTimeStamp = format(this.props.post.created_utc * 1000);
 
     let showPosts = this.props.post.selftext ? (
       <p className={classes.SelfText}>{this.props.post.selftext}</p>
@@ -50,9 +49,9 @@ class Post extends Component {
       <figure className={classes.mediaContainer}>
         {this.props.pic ? (
           <img className={classes.mediaImg} src={this.props.pic} alt="pic" />
-        ) : hasVideo !== null ? (
+        ) : hasMediaVideo && hasMediaVideo.hasOwnProperty("reddit_video") ? (
           <video className={classes.mediaVideo} controls>
-            <source src={hasVideo.reddit_video.fallback_url}></source>
+            <source src={hasMediaVideo.reddit_video.fallback_url}></source>
             Your browser does not support the video tag.
           </video>
         ) : hasThumbnail &&
@@ -67,7 +66,7 @@ class Post extends Component {
             >
               <div className={classes.Thumbnail}>
                 <div className={classes.ThumbnailIcon}>
-                  <i class="fas fa-arrow-circle-right"></i>
+                  <i className="fas fa-arrow-circle-right"></i>
                 </div>
                 <img
                   title="Click image to visit article!"
@@ -83,30 +82,6 @@ class Post extends Component {
       </figure>
     );
 
-    let dynamicPostRender =
-      hasThumbnail &&
-      hasThumbnail !== "default" &&
-      hasThumbnail !== "self" &&
-      !this.props.pic &&
-      !hasVideo ? (
-        <div className={classes.Container}>
-          <div className={classes.Title}>
-            <h3>{this.props.post.title}</h3>
-          </div>
-          {showPosts}
-        </div>
-      ) : (
-        <>
-          <div className={classes.Title}>
-            <h3>{this.props.post.title}</h3>
-          </div>
-          {/* <a href={this.props.post.url} target="_blank" rel="noreferrer">
-            {this.props.post.url}
-          </a> */}
-          {showPosts}
-        </>
-      );
-
     let showComments = this.state.comments ? (
       <div className={classes.Footer}>
         <Comments
@@ -121,11 +96,11 @@ class Post extends Component {
         <div className={classes.Votes}>
           <div className={classes.VoteDisplay}>
             <button className={classes.Up}>
-              <i class="fas fa-arrow-alt-circle-up"></i>
+              <i className="fas fa-arrow-alt-circle-up"></i>
             </button>
             <div className={classes.VoteCount}>{voteCount}</div>
             <button className={classes.Down}>
-              <i class="fas fa-arrow-alt-circle-down"></i>
+              <i className="fas fa-arrow-alt-circle-down"></i>
             </button>
           </div>
         </div>
@@ -153,7 +128,10 @@ class Post extends Component {
               </li>
             </ul>
           </div>
-          {dynamicPostRender}
+          <div className={classes.Title}>
+            <h3>{this.props.post.title}</h3>
+          </div>
+          {showPosts}
           <div className={classes.FooterContainer}>
             {showComments}
             <div className={classes.Timestamp}>

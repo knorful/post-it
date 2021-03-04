@@ -4,7 +4,6 @@ import classes from "./Comments.module.css";
 
 class Comments extends Component {
   render() {
-    console.log("comments in comments component: ", this.props.comments);
     return (
       <div className={classes.Comments}>
         <button className={classes.Btn}>

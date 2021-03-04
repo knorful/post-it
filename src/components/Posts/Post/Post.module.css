@@ -72,18 +72,6 @@
   background-color: #e7e1e5;
 }
 
-/* .Post .VoteDisplay .Down i:hover {
-  color: red;
-  transform: scale(1.1);
-  transition: all 0.5s;
-}
-
-.Post .VoteDisplay .Up i:hover {
-  color: rgb(21, 223, 21);
-  transform: scale(1.1);
-  transition: all 0.2s;
-} */
-
 .Post .VoteCount {
   margin: 10px 5px;
   min-width: 45px;
@@ -95,29 +83,30 @@
 .Post .ThumbnailWrapper {
   position: relative;
   width: 100%;
+  text-align: right;
 }
 
 .Post .Thumbnail {
-  position: relative;
-  right: 0;
   display: inline-block;
   overflow: hidden;
-  border: 1.5px solid rgb(26, 26, 212);
-  border-radius: 4px;
+  border: 1.5px solid rgba(36, 36, 226, 0.753);
+  border-radius: 3px;
 }
 
 .Post .ThumbnailIcon {
-  color: rgb(26, 26, 212);
+  color: rgba(36, 36, 226, 0.753);
   background-color: white;
-  padding-left: 5px;
   position: relative;
   z-index: 2;
+  padding-left: 8px;
+  text-align: left;
 }
 
 .Post .Thumbnail img {
   text-align: right;
   box-sizing: border-box;
   transform: scale(1.2);
+  max-height: 150px;
 }
 
 .Post .Thumbnail img:hover {
