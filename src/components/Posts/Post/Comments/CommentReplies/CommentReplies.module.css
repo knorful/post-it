@@ -1,0 +1,37 @@
+.Replies {
+  margin-left: 20px;
+}
+
+.Replies .Content {
+  border-left: 1px solid #897777;
+}
+
+.Replies .Author {
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+.Replies .Body,
+.Replies .Tagline {
+  margin-left: 25px;
+}
+
+.Replies .Btn {
+  border: none;
+  background-color: white;
+  color: #53413e;
+  font-weight: 700;
+}
+
+.Replies .Btn:hover {
+  text-decoration: underline;
+}
+
+.Replies .Tagline {
+  display: flex;
+  align-items: center;
+}
+
+.Replies .Timestamp {
+  font-size: 0.85rem;
+}

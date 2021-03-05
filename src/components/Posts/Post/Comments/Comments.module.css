@@ -1,3 +1,10 @@
+.Comments .Container {
+  border: 1px solid #4e4544;
+  margin: 20px 0;
+  border: 1px solid #b0a7ac;
+  border-radius: 3px;
+}
+
 .Comments .Btn {
   display: flex;
   align-items: center !important;
@@ -8,6 +15,10 @@
   margin: 5px 0;
 }
 
+.Comments .Author {
+  font-weight: bold;
+}
+
 .Comments i {
   margin: 0 5px;
 }
@@ -15,4 +26,34 @@
 .Comments .FooterText {
   font-weight: bold;
   color: #4e4544;
+}
+
+.Comments .Close_Open {
+  margin-left: 6px;
+  font-weight: bold;
+  color: #4e4544;
+}
+
+.Comments .Tagline {
+  display: flex;
+  align-items: center;
+}
+
+.Comments .Tagline p {
+  margin: 10px 5px;
+}
+
+.Comments .Content {
+  border-left: 3px solid #897777;
+  margin: 0 0 25px 25px;
+}
+
+.Comments .Body {
+  width: 90%;
+  margin: 15px auto;
+  padding-left: 15px;
+}
+
+.Comments .Timestamp p {
+  font-size: 0.85rem;
 }
