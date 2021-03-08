@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 
 import Post from "./Post/Post";
+import Categories from "../Categories/Categories";
 import classes from "./Posts.module.css";
 
 import axios from "axios";
@@ -10,6 +11,7 @@ const BASE_API = "https://www.reddit.com/r";
 class Posts extends Component {
   state = {
     posts: [],
+    loading: false,
   };
 
   async componentDidMount() {
@@ -31,6 +33,7 @@ class Posts extends Component {
 
       this.setState({
         posts: validatedPosts,
+        loading: true,
       });
     } catch (e) {
       console.log("Error:", e);
@@ -43,27 +46,33 @@ class Posts extends Component {
 
   render() {
     let posts = this.state.posts;
-    let renderPost = posts
-      ? this.state.posts.map((post, i) =>
-          post.data.validatedImgAddress ? (
-            <Post
-              key={post.data.subreddit_id + i}
-              post={post.data}
-              pic={post.data.url}
-              api={BASE_API}
-            />
-          ) : (
-            <Post
-              key={post.data.subreddit_id + i}
-              post={post.data}
-              api={BASE_API}
-            />
-          )
+    let renderPost = this.state.loading ? (
+      this.state.posts.map((post, i) =>
+        post.data.validatedImgAddress ? (
+          <Post
+            key={post.data.subreddit_id + i}
+            post={post.data}
+            pic={post.data.url}
+            api={BASE_API}
+          />
+        ) : (
+          <Post
+            key={post.data.subreddit_id + i}
+            post={post.data}
+            api={BASE_API}
+          />
         )
-      : null;
+      )
+    ) : (
+      <h1>Hello</h1>
+    );
+
     return (
-      <div className={classes.Posts}>
-        <div className={classes.Posts_content}>{renderPost}</div>
+      <div className={classes.PostsContainer}>
+        <div className={classes.Posts}>
+          <div className={classes.Posts_content}>{renderPost}</div>
+        </div>
+        <Categories loading={this.state.loading} posts={posts} api={BASE_API} />
       </div>
     );
   }

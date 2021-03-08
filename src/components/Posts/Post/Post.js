@@ -10,6 +10,7 @@ const USER_API = "https://www.reddit.com/user/";
 class Post extends Component {
   state = {
     comments: [],
+    showSelfText: false,
   };
 
   async componentDidMount() {
@@ -29,6 +30,12 @@ class Post extends Component {
     }
   }
 
+  showFullPost = () => {
+    this.setState({
+      showSelfText: !this.state.showSelfText,
+    });
+  };
+
   kFormatter = (num) => {
     return Math.abs(num) > 999
       ? Math.sign(num) * (Math.abs(num) / 1000).toFixed(1) + "k"
@@ -44,7 +51,17 @@ class Post extends Component {
     );
 
     let showPosts = this.props.post.selftext ? (
-      <p className={classes.SelfText}>{this.props.post.selftext}</p>
+      <div className={classes.SelfTextContainer}>
+        <p className={classes.SelfText}>
+          {this.props.post.selftext.length > 200 && !this.state.showSelfText
+            ? this.props.post.selftext.substr(0, 200) + "..."
+            : this.props.post.selftext}
+        </p>
+
+        <button className={classes.ShowFullPost} onClick={this.showFullPost}>
+          {this.state.showSelfText ? <>CLOSE</> : <>SHOW FULL POST</>}
+        </button>
+      </div>
     ) : (
       <figure className={classes.mediaContainer}>
         {this.props.pic ? (
@@ -91,6 +108,20 @@ class Post extends Component {
       </div>
     ) : null;
 
+    let showPostLink = !this.props.pic ? (
+      <div className={classes.Postlink}>
+        {this.props.post.url_overridden_by_dest && !hasMediaVideo ? (
+          <a
+            href={this.props.post.url_overridden_by_dest}
+            target="_blank"
+            rel="noreferrer"
+          >
+            {this.props.post.url_overridden_by_dest.substr(0, 30) + "..."}
+          </a>
+        ) : null}
+      </div>
+    ) : null;
+
     return (
       <div className={classes.Post}>
         <div className={classes.Votes}>
@@ -131,6 +162,7 @@ class Post extends Component {
           <div className={classes.Title}>
             <h3>{this.props.post.title}</h3>
           </div>
+          {showPostLink}
           {showPosts}
           <div className={classes.FooterContainer}>
             {showComments}

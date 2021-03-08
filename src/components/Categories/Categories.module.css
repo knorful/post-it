@@ -1,0 +1,48 @@
+.Categories {
+  background-color: white;
+  height: fit-content;
+  margin-top: 40px;
+  width: 400px;
+  border-radius: 6px;
+  box-shadow: 5px 10px 2px 1px #897777;
+}
+
+.Categories ul {
+  padding: 0;
+}
+
+.Categories ul > li {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  border-bottom: 1px solid #c8c1b7;
+  padding: 25px;
+}
+
+.Categories ul > li img {
+  width: 60px;
+  overflow: hidden;
+  margin-right: 10px;
+  border-radius: 50%;
+  height: auto;
+}
+
+.Categories ul > li p {
+  font-family: "Roboto";
+  font-weight: 600;
+  font-size: 1rem;
+  letter-spacing: 0.7px;
+}
+
+.Categories .Header {
+  text-align: center;
+  background-color: #4e4544;
+  border-radius: 4px 4px 0px 0px;
+  color: white;
+  height: 100px;
+}
+
+.Categories .Header h1 {
+  margin: 0;
+  padding-top: 25px;
+}

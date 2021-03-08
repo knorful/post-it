@@ -11,10 +11,7 @@ class App extends Component {
     return (
       <div className={classes.App}>
         <Header />
-        <main className={classes.Main}>
-          <Posts />
-          <Categories />
-        </main>
+        <Posts />
       </div>
     );
   }

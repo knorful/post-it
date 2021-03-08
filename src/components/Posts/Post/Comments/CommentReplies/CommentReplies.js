@@ -36,7 +36,10 @@ class CommentReplies extends Component {
       <div className={classes.Replies}>
         <button className={classes.Btn} onClick={this.handleClick}>
           {!this.state.showReplies ? (
-            <p>{showReplies.length - 1} Replies</p>
+            <p>
+              {showReplies.length - 1 === 0 ? 1 : showReplies.length - 1}{" "}
+              Replies
+            </p>
           ) : (
             <p>Close Replies</p>
           )}

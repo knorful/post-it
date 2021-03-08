@@ -7,7 +7,8 @@ class Header extends Component {
       <header>
         <nav className={classes.Header}>
           <div className={classes.Logo}>
-            <h1>PostIt</h1>
+            <h1>PostIt.</h1>
+            <p>a reddit minimalist website</p>
           </div>
           <div className={classes.Search}>
             <input type="text" placeholder="Search" />

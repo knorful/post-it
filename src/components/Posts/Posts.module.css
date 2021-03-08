@@ -1,13 +1,12 @@
+.PostsContainer {
+  display: flex;
+  justify-content: center;
+}
+
 .Posts {
   display: flex;
   flex-direction: column;
   justify-content: center;
-}
-
-.Posts h1 {
-  font-family: "DotGothic16", sans-serif;
-  text-align: center;
-  letter-spacing: 1px;
 }
 
 .Posts_content {
