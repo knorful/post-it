@@ -43,7 +43,6 @@ class Categories extends Component {
 
   setIcons = (sub, url, post) => {
     let copyOfIconsInState = this.state.icons.slice();
-    console.log("This is a post obj: ", post);
     copyOfIconsInState.push({ topic: sub, imgAddress: url });
     this.setState((st) => ({
       ...st.icons,
@@ -77,12 +76,16 @@ class Categories extends Component {
           );
         });
 
-    let loadCategories = this.props.loading ? getCategories : null;
-    return (
-      <div className={classes.Categories}>
+    let loadCategories = this.props.loading ? (
+      <>
         <div className={classes.Header}>
           <h1>Subreddits</h1>
         </div>
+        {getCategories}
+      </>
+    ) : null;
+    return (
+      <div className={classes.Categories}>
         <ul>{loadCategories}</ul>
       </div>
     );

@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+
+import Search from "./Search/Search";
 import classes from "./Header.module.css";
 
 class Header extends Component {
@@ -10,10 +12,7 @@ class Header extends Component {
             <h1>PostIt.</h1>
             <p>a reddit minimalist website</p>
           </div>
-          <div className={classes.Search}>
-            <input type="text" placeholder="Search" />
-            <i className="fas fa-search"></i>
-          </div>
+          <Search searchTerm={this.props.searchTerm} />
         </nav>
       </header>
     );

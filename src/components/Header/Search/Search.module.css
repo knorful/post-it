@@ -1,0 +1,33 @@
+.Search {
+  display: flex;
+  align-items: center;
+}
+
+.Search form {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.Search input[type="text"] {
+  padding: 10px;
+  margin-right: 10px;
+  width: 100%;
+  border: none;
+  border-radius: 4px;
+  background-color: #f1f1f1;
+  font-size: 1.1rem;
+}
+
+.Search i {
+  margin: 15px;
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: #f3ecf1;
+}
+
+.Search button {
+  background-color: #4e4544;
+  border: none;
+  cursor: pointer;
+}

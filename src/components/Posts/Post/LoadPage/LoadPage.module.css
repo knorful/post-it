@@ -1,0 +1,13 @@
+.LoadPage {
+  position: relative;
+  height: 100vh;
+}
+
+.LoadPage .Text {
+  position: absolute;
+  top: 30%;
+  left: 30%;
+  font-size: 2rem;
+  font-weight: bold;
+  color: #53413e;
+}
